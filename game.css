@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "neodgm";
+  src: url("./font/neodgm.woff") format("woff"),
+    url("./font/neodgm.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  font-family: neodgm;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100wh;
+  height: 100vh;
+
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./media/background/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+h1 {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.371);
+}
+
+#quizContainer {
+  margin: 0;
+  padding: 0;
+  width: 70vw;
+  height: 90vh;
+  background-color: #ff0000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  overflow: auto;
+  position: absolute;
+  z-index: -1;
+}
+
+#quizContainer button {
+  border: 10px solid black;
+  padding: 5vh;
+  margin: 0.5vh;
+  border-radius: 20px;
+  background-color: #d8863d;
+}
+
+.invisible {
+  display: none !important;
+}
+
+#settingContainer {
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  border: 10px ridge black;
+  border-radius: 15px;
+  overflow: auto;
+}
+
+.menuBtn {
+  border: 10px solid black;
+  padding: 3vh;
+  margin: 0.5vh;
+  border-radius: 20px;
+  background-color: #d8853d9a;
+  font-size: 5vh;
+}
+
+#info-settingContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#info-settingContainer > button {
+  padding: 3vh;
+  margin: 0.5vh;
+  width: 48%;
+  height: 70%;
+  border: 5px solid gray;
+  border-radius: 20px;
+  background-color: rgba(245, 245, 220, 0.63);
+  font-size: 5vh;
+}

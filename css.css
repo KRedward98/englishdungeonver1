@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "neodgm";
+  src: url("./font/neodgm.woff") format("woff"),
+    url("./font/neodgm.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  font-family: neodgm;
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.invisible {
+  display: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: #c52424;
+  color: white;
+  border: none;
+  cursor: pointer;
+  animation: fadeIn 1.5s ease;
+}
+
+input {
+  font-size: 25px;
+  animation: fadeIn 1.5s ease;
+}
