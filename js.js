@@ -8,7 +8,7 @@ import {
 } from "./functions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("state")) {
+  if (localStorage.getItem("state") !== null) {
     console.log("state가 있습니다");
     window.location.href = "./game.html";
   } else {
