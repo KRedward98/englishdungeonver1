@@ -68,10 +68,24 @@ function quizCreation(state) {
   }
 }
 
+// div 등장
+function divAppear(elementId) {
+  const div = document.getElementById(elementId);
+  div.classList.remove("invisible");
+}
+
+// div 퇴장
+function divDisappear(elementId) {
+  const div = document.getElementById(elementId);
+  div.classList.add("invisible");
+}
+
 export {
   selectionCreation,
   getRandomInt,
   getUniqueRandomNumbers,
   quizCreation,
   readyToPlay,
+  divAppear,
+  divDisappear,
 };

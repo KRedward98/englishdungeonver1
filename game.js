@@ -1,3 +1,13 @@
+import {
+  selectionCreation,
+  getRandomInt,
+  getUniqueRandomNumbers,
+  quizCreation,
+  readyToPlay,
+  divAppear,
+  divDisappear,
+} from "./functions.js";
+
 const state = JSON.parse(localStorage.getItem("state"));
 
 document.getElementById(
@@ -7,7 +17,8 @@ function letsPlayQuiz() {
   Object.keys(state.quizInfo).map((el) => {
     const newDiv = document.createElement("button");
     newDiv.style.width = "80%";
-    newDiv.style.height = "15vh";
+    newDiv.style.height = "15%";
+    newDiv.style.fontSize = "7vw";
     newDiv.innerText = el;
     newDiv.id = `quizContainer-${el}`;
     newDiv.addEventListener("click", (event) => {
@@ -15,10 +26,19 @@ function letsPlayQuiz() {
       console.log(state.quizInfo[text]);
     });
     document.getElementById("quizContainer").append(newDiv);
-    document.getElementById("quizContainer").classList.remove("invisible");
+    divAppear("dungeonContainer");
+
+    divDisappear("settingContainer");
+    divDisappear("firstH1");
   });
 }
 
 document.getElementById("dungeonBtn").addEventListener("click", () => {
   letsPlayQuiz();
+});
+
+document.getElementById("gobackBtn").addEventListener("click", () => {
+  divAppear("settingContainer");
+  divAppear("firstH1");
+  divDisappear("dungeonContainer");
 });
