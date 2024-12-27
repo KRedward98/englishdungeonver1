@@ -15,5 +15,10 @@ function letsPlayQuiz() {
       console.log(state.quizInfo[text]);
     });
     document.getElementById("quizContainer").append(newDiv);
+    document.getElementById("quizContainer").classList.remove("invisible");
   });
 }
+
+document.getElementById("dungeonBtn").addEventListener("click", () => {
+  letsPlayQuiz();
+});
