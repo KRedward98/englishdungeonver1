@@ -35,7 +35,7 @@ function animateTextWithLineBreaks(elementId, text, delay) {
 }
 
 // 애니메이션 실행
-const animatedText = `안녕하세요, 만나서 반갑습니다\n 지금 세상은\n 당신의 도움이\n 필요합니다!`;
+const animatedText = `안녕하세요\n 만나서 반갑습니다\n 지금 세상은\n 당신의 도움이\n 필요합니다!`;
 
 animateTextWithLineBreaks(
   "welcomeWord",
@@ -60,7 +60,7 @@ function divDisappear(elementId) {
 document.getElementById("welcomeWordBtn").addEventListener("click", () => {
   divDisappear("firstPage");
   divAppear("secondPage");
-  const nameText = `그렇습니다..!\n 자세한걸 설명하기 전에\n 용사님의 이름은\n 무엇인가요?`;
+  const nameText = `그렇습니다..!\n 자세한걸\n 설명하기 전에\n 용사님의 이름은\n 무엇인가요?`;
   animateTextWithLineBreaks(
     "nameWord",
     nameText,
