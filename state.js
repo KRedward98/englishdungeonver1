@@ -1,10 +1,11 @@
 import { vocab } from "./words.js";
+import { oxford3000 } from "./newword.js";
 
 export const state = {
   yourInfo: {
     yourName: "",
     givenNumber: 0,
-    entireWordLength: Object.keys(vocab).length,
+    entireWordLength: Object.keys(oxford3000).length,
     wordSpeed: 110,
     isSettingComplete: false,
     yourLevel: 0,

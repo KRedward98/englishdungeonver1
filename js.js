@@ -103,16 +103,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     document.getElementById("numberBtn").addEventListener("click", () => {
-      divDisappear("thirdPage");
-      divAppear("forthPage");
-      const doubleCheckText = `좋습니다 용사님!\n 당신의 이름은 ${changeName}이고 \n ${changeNumber}개의 단어들 만큼 \n하루에 공부하는 \n 모험을 \n떠날 준비가\n 되었나요?`;
-      animateTextWithLineBreaks(
-        "doubleCheckWord",
-        doubleCheckText,
-        state.yourInfo.wordSpeed
-      ).then(() => {
-        divAppear("checkerContatiner");
-      });
+      if (changeNumber > state.quizInfo.entireWordLength) {
+        alert(`숫자는 ${state.quizInfo.entireWordLength}보다 작아야 합니다!`);
+      } else {
+        divDisappear("thirdPage");
+        divAppear("forthPage");
+        const doubleCheckText = `좋습니다 용사님!\n 당신의 이름은 ${changeName}이고 \n ${changeNumber}개의 단어들 만큼 \n하루에 공부하는 \n 모험을\n ${Math.ceil(
+          state.quizInfo.entireWordLength / changeNumber
+        )}일 만큼 \n떠날 준비가\n 되었나요?`;
+        animateTextWithLineBreaks(
+          "doubleCheckWord",
+          doubleCheckText,
+          state.yourInfo.wordSpeed
+        ).then(() => {
+          divAppear("checkerContatiner");
+        });
+      }
     });
 
     document.getElementById("iAmNotReady").addEventListener("click", () => {
