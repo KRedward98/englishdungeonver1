@@ -72,7 +72,11 @@ h2 {
   border-radius: 25px;
 
   animation: fadeIn 1s ease;
-  background-color: #00000056;
+  background-image: url(./media/background/vintage-parchment.png);
+  background-repeat: no-repeat; /* 반복 없이 */
+  background-size: contain; /* 이미지 크기를 유지하며 요소에 맞춤 */
+  background-position: center center; /* 배경을 수평, 수직 모두 가운데로 */
+  background-size: 180%;
 }
 
 #quizContainer > button {
