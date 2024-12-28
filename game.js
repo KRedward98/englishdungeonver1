@@ -42,3 +42,8 @@ document.getElementById("gobackBtn").addEventListener("click", () => {
   divAppear("firstH1");
   divDisappear("dungeonContainer");
 });
+
+document.getElementById("clearData").addEventListener("click", () => {
+  localStorage.removeItem("state");
+  window.location.href = "./index.html";
+});
