@@ -75,7 +75,7 @@ h2 {
   background-color: #00000056;
 }
 
-#quizContainer button {
+#quizContainer > button {
   padding: 3vh;
   margin: 0.5vh;
   border-right: 1vw solid black;
