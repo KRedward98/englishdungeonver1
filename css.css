@@ -31,6 +31,11 @@ body {
   overflow: hidden;
 }
 
+.btnContainers {
+  display: flex;
+  flex-direction: column;
+}
+
 .invisible {
   display: none;
 }
@@ -47,6 +52,6 @@ button {
 }
 
 input {
-  font-size: 25px;
+  font-size: 3vh;
   animation: fadeIn 1.5s ease;
 }

@@ -5,7 +5,7 @@ export const state = {
   yourInfo: {
     yourName: "",
     givenNumber: 0,
-    entireWordLength: Object.keys(oxford3000).length,
+    entireWordLength: Number(Object.keys(oxford3000).length),
     wordSpeed: 110,
     isSettingComplete: false,
     yourLevel: 0,

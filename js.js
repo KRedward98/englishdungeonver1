@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("nameBtn").addEventListener("click", () => {
       divDisappear("secondPage");
       divAppear("thirdPage");
-      const numberText = `${changeName}이라... \n 정말 멋진 이름이에요!\n 이제 당신이\n 하루에 외우고 싶은\n 단어의 숫자를\n 입력하세요!`;
+      const numberText = `${changeName}이라... \n 정말 멋진\n 이름이에요!\n 이제 당신이\n 하루에 외우고 싶은\n 단어의 숫자를\n 입력하세요!`;
       animateTextWithLineBreaks(
         "numberWord",
         numberText,
@@ -99,18 +99,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .getElementById("numberInput")
       .addEventListener("input", (event) => {
-        changeNumber = event.target.value;
+        changeNumber = Number(event.target.value);
       });
 
     document.getElementById("numberBtn").addEventListener("click", () => {
-      if (changeNumber > state.quizInfo.entireWordLength) {
-        alert(`숫자는 ${state.quizInfo.entireWordLength}보다 작아야 합니다!`);
+      console.log(changeNumber);
+      console.log(state.yourInfo.entireWordLength);
+      if (changeNumber > state.yourInfo.entireWordLength) {
+        alert(`숫자는 ${state.yourInfo.entireWordLength}보다 작아야 합니다!`);
+        console.log("check");
+      } else if (changeNumber < 1) {
+        alert("숫자는 0보다 커야 합니다");
       } else {
         divDisappear("thirdPage");
         divAppear("forthPage");
-        const doubleCheckText = `좋습니다 용사님!\n 당신의 이름은 ${changeName}이고 \n ${changeNumber}개의 단어들 만큼 \n하루에 공부하는 \n 모험을\n ${Math.ceil(
-          state.quizInfo.entireWordLength / changeNumber
-        )}일 만큼 \n떠날 준비가\n 되었나요?`;
+        const doubleCheckText = `좋습니다 용사님!\n 당신의 이름은\n ${changeName}이고 \n ${changeNumber}개의 단어들 만큼 \n하루에 공부하는 \n 모험을\n ${Math.ceil(
+          state.yourInfo.entireWordLength / changeNumber
+        )}일간 \n떠날 준비가\n 되었나요?`;
         animateTextWithLineBreaks(
           "doubleCheckWord",
           doubleCheckText,
