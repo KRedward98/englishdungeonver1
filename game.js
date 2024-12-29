@@ -12,9 +12,19 @@ import { oxford3000 } from "./newword.js";
 
 const state = JSON.parse(localStorage.getItem("state"));
 
+const now = new Date();
+
+const rightday = new Date(now.getTime());
+
+const year = rightday.getFullYear();
+const month = rightday.getMonth() + 1;
+const day = rightday.getDate();
+
+const result = `${year}-${month}-${day}`;
+
 document.getElementById(
   "firstH1"
-).innerText = `"${state.yourInfo.yourName}" 용사님의 여정입니다`;
+).innerText = `"${state.yourInfo.yourName}"\n 용사님의\n 여정입니다`;
 
 function letsPlayQuiz() {
   Object.keys(state.quizInfo).map((quizDate) => {
@@ -24,9 +34,17 @@ function letsPlayQuiz() {
     newDiv.style.fontSize = "7vw";
     newDiv.innerText = quizDate;
     newDiv.id = `quizContainer-${quizDate}`;
+    if (result !== quizDate) {
+      newDiv.style.backgroundColor = "gray";
+      newDiv.disabled = true;
+    }
     newDiv.addEventListener("click", (event) => {
       const text = event.target.innerText;
       document.getElementById("quizContainer").innerHTML = "";
+      document.getElementById("quizContainer").style.backgroundImage =
+        "url(./media/background/vintage-parchment.png)";
+      document.getElementById("quizContainer").style.border = "0px";
+      document.getElementById("quizContainer").style.backgroundColor = "none";
       state.quizInfo[quizDate].quizSelectedWords.map((el, index) => {
         const singleQuiz = document.createElement("div");
         singleQuiz.id = String(`${quizDate}-${Object.keys(oxford3000)[el]}`);
@@ -61,14 +79,31 @@ function letsPlayQuiz() {
         prevBtn.textContent = "previous";
         nextBtn.textContent = "next";
 
-        nextBtn.addEventListener("click", () => {
-          singleQuiz.nextElementSibling.classList.remove("invisible");
-          singleQuiz.classList.add("invisible");
+        if (index === 0) {
+          prevBtn.style.backgroundColor = "gray";
+        }
+        if (index === state.quizInfo[quizDate].quizSelectedWords.length - 1) {
+          nextBtn.style.backgroundColor = "gray";
+        }
+
+        nextBtn.addEventListener("click", (event) => {
+          const nextElement = singleQuiz.nextElementSibling;
+          if (nextElement) {
+            nextElement.classList.remove("invisible");
+            singleQuiz.classList.add("invisible");
+          } else {
+            event.target.style.backgroundColor = "gray";
+          }
         });
 
-        prevBtn.addEventListener("click", () => {
-          singleQuiz.previousElementSibling.classList.remove("invisible");
-          singleQuiz.classList.add("invisible");
+        prevBtn.addEventListener("click", (event) => {
+          const previousElment = singleQuiz.previousElementSibling;
+          if (previousElment) {
+            previousElment.classList.remove("invisible");
+            singleQuiz.classList.add("invisible");
+          } else {
+            event.target.style.backgroundColor = "gray";
+          }
         });
       });
     });
@@ -87,6 +122,12 @@ document.getElementById("dungeonBtn").addEventListener("click", () => {
 
 document.getElementById("gobackBtn").addEventListener("click", () => {
   document.getElementById("quizContainer").innerHTML = "";
+
+  document.getElementById("quizContainer").style.backgroundImage = "none";
+  document.getElementById("quizContainer").style.border =
+    "5px solid rgb(113, 74, 7)";
+  document.getElementById("quizContainer").style.backgroundColor = "#5d3e2787";
+
   divAppear("settingContainer");
   divAppear("firstH1");
   divDisappear("dungeonContainer");
