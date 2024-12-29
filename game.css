@@ -79,6 +79,12 @@ h2 {
   background-size: contain; /* 이미지 크기를 유지하며 요소에 맞춤 */
   background-position: center center; /* 배경을 수평, 수직 모두 가운데로 */
   background-size: 180%;
+
+  -ms-overflow-style: none;
+}
+
+#quizContainer::-webkit-scrollbar {
+  display: none;
 }
 
 #quizContainer > button {

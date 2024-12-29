@@ -81,9 +81,11 @@ function letsPlayQuiz() {
 
         if (index === 0) {
           prevBtn.style.backgroundColor = "gray";
+          prevBtn.disabled = true;
         }
         if (index === state.quizInfo[quizDate].quizSelectedWords.length - 1) {
           nextBtn.style.backgroundColor = "gray";
+          nextBtn.disabled = true;
         }
 
         nextBtn.addEventListener("click", (event) => {
